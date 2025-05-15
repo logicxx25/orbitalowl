@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbital Owl - AI Agent Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Orbital Owl</h1>
+            <p>"Crafting AI sidekicks on demand. OrbitalOwl turns prompts into agents while I sprinkle game-dev magic."</p>
+        </header>
+
+        <div class="grid-container">
+            <div class="config-panel">
+                <h2 class="panel-title">Configure Your Agent</h2>
+
+                <div class="form-group">
+                    <label for="agentName">Agent Name:</label>
+                    <input type="text" id="agentName" value="MyAgent">
+                </div>
+
+                <div class="form-group">
+                    <label for="agentPersona">Persona:</label>
+                    <select id="agentPersona">
+                        <option value="friendly_assistant">Friendly Assistant</option>
+                        <option value="sarcastic_bot">Sarcastic Bot</option>
+                        <option value="knowledgeable_expert">Knowledgeable Expert</option>
+                        <option value="creative_muse">Creative Muse</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <span class="label-text">Core Skills:</span>
+                    <div class="skills-grid">
+                        <div>
+                            <input type="checkbox" id="skillJoke" value="tell_jokes" class="skill-checkbox">
+                            <label for="skillJoke" class="skill-checkbox-label">Tell Jokes</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="skillFact" value="provide_facts" class="skill-checkbox">
+                            <label for="skillFact" class="skill-checkbox-label">Provide Facts</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="skillQuestion" value="answer_questions" class="skill-checkbox" checked>
+                            <label for="skillQuestion" class="skill-checkbox-label">Answer Questions</label>
+                        </div>
+                         <div>
+                            <input type="checkbox" id="skillCode" value="write_code" class="skill-checkbox">
+                            <label for="skillCode" class="skill-checkbox-label">Write Code</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="agentTone">Tone:</label>
+                    <select id="agentTone">
+                        <option value="formal">Formal</option>
+                        <option value="casual" selected>Casual</option>
+                        <option value="humorous">Humorous</option>
+                        <option value="empathetic">Empathetic</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <span class="label-text">Choose Avatar:</span>
+                    <div id="avatarSelection" class="avatar-grid">
+                        <!-- Avatars will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <button id="generateAgent" class="btn-primary">
+                    Generate & Update Agent
+                </button>
+                <div class="form-group" style="text-align: center; margin-top: 20px;">
+                    <a href="https://www.snek.fun/" target="_blank" class="btn-secondary">Buy $OO Token</a>
+                </div>
+            </div>
+
+            <div class="preview-panel">
+                <h2 class="panel-title">Agent Preview & Chat</h2>
+                
+                <div class="agent-preview-card">
+                    <img id="agentAvatarPreview" src="https://placehold.co/100x100/2C2F33/40E0D0?text=Agent" alt="Agent Avatar">
+                    <h3 id="agentNamePreview">Agent Name</h3>
+                    <p id="agentPersonaPreview">Persona</p>
+                    <p id="agentTonePreview" class="tone-preview">Tone: Casual</p>
+                </div>
+
+                <div class="chat-ui">
+                    <div id="chatMessages" class="chat-messages">
+                        <!-- Initial agent message will be added by JS -->
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="chatInput" placeholder="Type your message...">
+                        <button id="sendMessage" class="btn-send">
+                            Send
+                        </button>
+                    </div>
+                </div>
+                 <div id="systemMessage" class="system-message"></div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Orbital Owl - AI Agent Generator. "Crafting AI sidekicks on demand."</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,403 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #1A1A1D; /* Dark charcoal background */
+    color: #E0E0E0; /* Light gray text */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #23272A; /* Slightly lighter dark gray for main container */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Enhanced shadow for depth */
+    border-radius: 12px; /* Slightly more rounded corners */
+    padding: 24px 40px; /* md:p-10 */
+    width: 100%;
+    max-width: 900px; /* max-w-4xl */
+    margin: 20px;
+}
+
+header {
+    margin-bottom: 32px; /* mb-8 */
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem; /* text-4xl */
+    font-weight: 700; /* font-bold */
+    color: #40E0D0; /* Vibrant cyan accent */
+}
+
+header p {
+    color: #A0A0A0; /* Lighter gray for subtitle */
+    margin-top: 8px; /* mt-2 */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr; /* grid-cols-1 */
+    gap: 32px; /* gap-8 */
+}
+
+@media (min-width: 768px) { /* md: */
+    .grid-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-cols-2 */
+    }
+}
+
+.config-panel, .preview-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* space-y-6 */
+    padding: 24px; /* p-6 */
+    background-color: #2C2F33; /* Darker panel background */
+    border-radius: 8px; /* rounded-lg */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Inner shadow for panels */
+}
+
+.panel-title {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 600; /* font-semibold */
+    color: #F5F5F5; /* Off-white for titles */
+    border-bottom: 1px solid #4A4A4A; /* Darker border */
+    padding-bottom: 8px; /* pb-2 */
+}
+
+.form-group label, .form-group .label-text {
+    display: block;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: #B0B0B0; /* Medium gray for labels */
+    margin-bottom: 4px; /* mb-1 or mb-2 */
+}
+
+.form-group input[type="text"], .form-group select {
+    width: 100%;
+    padding: 12px; /* p-3 */
+    border: 1px solid #4A4A4A; /* Darker border */
+    border-radius: 6px; /* rounded-md */
+    background-color: #1E1E21; /* Dark input background */
+    color: #E0E0E0; /* Light text in inputs */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2); /* Inner shadow for inputs */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus, .form-group select:focus {
+    outline: none;
+    border-color: #40E0D0; /* Cyan focus border */
+    box-shadow: 0 0 0 3px rgba(64, 224, 208, 0.3); /* Cyan focus ring */
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-cols-2 */
+    gap: 12px; /* gap-3 */
+}
+
+.skill-checkbox-label {
+    display: block;
+    text-align: center;
+    padding: 12px; /* p-3 */
+    border: 1px solid #4A4A4A; /* Darker border */
+    border-radius: 6px; /* rounded-md */
+    cursor: pointer;
+    background-color: #33373A; /* Darker skill button */
+    color: #C0C0C0;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.skill-checkbox-label:hover {
+    background-color: #3A3E41;
+    border-color: #5A5E61;
+}
+
+.skill-checkbox:checked + .skill-checkbox-label {
+    background-color: #40E0D0; /* Cyan for selected skill */
+    border-color: #30C0B0; /* Darker cyan border */
+    color: #1A1A1D; /* Dark text on cyan */
+    font-weight: 500;
+}
+
+.skill-checkbox:focus + .skill-checkbox-label {
+    box-shadow: 0 0 0 2px rgba(64, 224, 208, 0.4); /* Cyan focus ring */
+}
+
+.skill-checkbox { /* To hide the actual checkbox */
+    display: none;
+}
+
+.avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* grid-cols-3 */
+    gap: 12px; /* gap-3 */
+}
+
+.avatar-option {
+    padding: 8px; /* p-2 */
+    border-radius: 8px; /* rounded-lg */
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    background-color: #33373A;
+}
+
+.avatar-option img {
+    width: 100%; /* w-16, but make responsive */
+    max-width: 64px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%; /* rounded-full */
+    margin: 0 auto; /* mx-auto */
+    display: block;
+}
+.avatar-option p {
+    font-size: 0.75rem; /* text-xs */
+    text-align: center;
+    margin-top: 4px; /* mt-1 */
+    color: #B0B0B0;
+}
+
+.avatar-option:hover {
+    transform: scale(1.05);
+    border-color: #5A5E61;
+}
+
+.avatar-option.selected {
+    border-color: #40E0D0; /* Cyan border for selected avatar */
+    transform: scale(1.05);
+    box-shadow: 0 0 8px rgba(64, 224, 208, 0.5);
+}
+
+.btn-primary {
+    width: 100%;
+    background-color: #40E0D0; /* Cyan button */
+    color: #1A1A1D; /* Dark text on cyan button */
+    font-weight: 600; /* font-semibold */
+    padding: 12px; /* p-3 */
+    border-radius: 6px; /* rounded-md */
+    border: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3); /* Subtle shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #30C0B0; /* Darker cyan on hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(64, 224, 208, 0.4), 0 4px 10px rgba(0,0,0,0.4); /* Cyan focus ring */
+}
+
+.btn-secondary {
+    display: inline-block; /* Or block if it should take full width */
+    background-color: #6c757d; /* A secondary color, e.g., gray */
+    color: #ffffff; /* White text */
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline from link */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Darker gray on hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.btn-secondary:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.5); /* Focus ring for secondary button */
+}
+
+
+.agent-preview-card {
+    text-align: center;
+    padding: 16px; /* p-4 */
+    border: 1px dashed #40E0D0; /* Dashed cyan border */
+    border-radius: 8px; /* rounded-lg */
+    background-color: rgba(64, 224, 208, 0.05); /* Very light cyan tint */
+}
+
+.agent-preview-card img {
+    width: 96px; /* w-24 */
+    height: 96px; /* h-24 */
+    border-radius: 50%; /* rounded-full */
+    margin: 0 auto 12px auto; /* mx-auto mb-3 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4); /* shadow-md */
+    border: 2px solid #40E0D0;
+}
+
+.agent-preview-card h3 {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    color: #40E0D0; /* Cyan for agent name */
+}
+
+.agent-preview-card p {
+    font-size: 0.875rem; /* text-sm */
+    color: #B0B0B0; /* Medium gray for persona */
+}
+
+.agent-preview-card .tone-preview {
+    font-size: 0.75rem; /* text-xs */
+    color: #909090; /* Lighter gray for tone */
+    margin-top: 4px; /* mt-1 */
+}
+
+.chat-ui {
+    height: 320px; /* h-80 */
+    background-color: #1E1E21; /* Darker chat background */
+    border-radius: 6px; /* rounded-md */
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.3); /* Inner shadow for chat */
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 16px; /* p-4 */
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* space-y-3 */
+    overflow-y: auto;
+}
+
+/* Custom scrollbar for chat */
+.chat-messages::-webkit-scrollbar {
+    width: 8px;
+}
+.chat-messages::-webkit-scrollbar-track {
+    background: #2C2F33; /* Dark track */
+    border-radius: 10px;
+}
+.chat-messages::-webkit-scrollbar-thumb {
+    background: #4A4A4A; /* Medium gray thumb */
+    border-radius: 10px;
+}
+.chat-messages::-webkit-scrollbar-thumb:hover {
+    background: #5A5E61; /* Lighter gray thumb on hover */
+}
+
+.chat-message {
+    display: flex;
+    max-width: 80%; /* max-w-xs, but relative */
+}
+.chat-message.user {
+    justify-content: flex-end;
+    margin-left: auto;
+}
+.chat-message.agent {
+    justify-content: flex-start;
+    margin-right: auto;
+}
+
+.message-bubble {
+    padding: 12px; /* p-3 */
+    border-radius: 8px; /* rounded-lg */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    word-wrap: break-word;
+}
+.message-bubble.user {
+    background-color: #40E0D0; /* Cyan for user messages */
+    color: #1A1A1D; /* Dark text */
+}
+.message-bubble.agent {
+    background-color: #3A3E41; /* Dark gray for agent messages */
+    color: #E0E0E0; /* Light text */
+}
+
+.chat-message.agent-thinking .message-bubble.agent {
+    background-color: #2c2f33; /* Slightly different background for thinking */
+    color: #a0a0a0; /* Dimmer text for thinking */
+    font-style: italic;
+}
+
+.message-bubble pre {
+    background-color: #1A1A1D !important; /* Darker code block background */
+    color: #D0D0D0 !important; /* Lighter code text */
+    padding: 8px !important; /* p-2 */
+    border-radius: 4px !important; /* rounded-md */
+    margin: 4px 0 !important; /* my-1 */
+    font-size: 0.875rem !important; /* text-sm */
+    overflow-x: auto !important;
+    border: 1px solid #4A4A4A;
+}
+.message-bubble code {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.chat-input-area {
+    padding: 16px; /* p-4 */
+    border-top: 1px solid #4A4A4A; /* Darker border */
+    display: flex;
+    gap: 8px; /* space-x-2 */
+}
+
+.chat-input-area input[type="text"] {
+    flex-grow: 1;
+    padding: 12px; /* p-3 */
+    border: 1px solid #4A4A4A;
+    border-radius: 6px; /* rounded-md */
+    background-color: #1E1E21;
+    color: #E0E0E0;
+}
+.chat-input-area input[type="text"]:focus {
+    outline: none;
+    border-color: #40E0D0;
+    box-shadow: 0 0 0 3px rgba(64, 224, 208, 0.3);
+}
+
+.chat-input-area .btn-send {
+    background-color: #40E0D0;
+    color: #1A1A1D;
+    padding: 0 24px; /* px-6 */
+    /* py-3 is implicitly handled by input height matching */
+    border-radius: 6px; /* rounded-md */
+    font-weight: 500; /* font-medium */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+.chat-input-area .btn-send:hover {
+    background-color: #30C0B0;
+    transform: translateY(-1px);
+}
+.chat-input-area .btn-send:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(64, 224, 208, 0.4);
+}
+
+.system-message {
+    margin-top: 8px; /* mt-2 */
+    font-size: 0.875rem; /* text-sm */
+    text-align: center;
+    color: #FF6B6B; /* Red for error messages */
+    min-height: 1.2em; /* Reserve space to prevent layout shift */
+}
+
+footer {
+    margin-top: 40px; /* mt-10 */
+    text-align: center;
+    font-size: 0.875rem; /* text-sm */
+    color: #808080; /* Darker gray for footer text */
+}
+
+/* TailwindCSS CDN is removed, so selection needs to be styled manually */
+::selection {
+    background-color: #40E0D0; /* Cyan selection */
+    color: #1A1A1D; /* Dark text for selection */
+}
